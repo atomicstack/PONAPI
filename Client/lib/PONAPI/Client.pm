@@ -52,7 +52,7 @@ has ua => (
     is      => 'ro',
     does    => 'PONAPI::Client::Role::UA',
     lazy    => 1,
-    builder => '_build_hijk_ua',
+    builder => '_build_ua',
 );
 
 ### public methods
@@ -119,7 +119,7 @@ sub delete_relationships {
 
 ### private methods
 
-sub build_hijk_ua {
+sub _build_ua {
     require PONAPI::Client::UA::Hijk;
     return PONAPI::Client::UA::Hijk->new();
 }
